@@ -21,3 +21,10 @@
     height: 5rem;
     margin: 1rem 7rem 1rem 7rem,
 }
+.FormContent{
+    margin: 1rem 7rem 1rem 7rem,
+}
+.FormDescription{
+    display: "flex";
+    align-items: "center";
+}

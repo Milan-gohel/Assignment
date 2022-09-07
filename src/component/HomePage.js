@@ -1,5 +1,6 @@
 import React from "react";
 import '../component/style.css';
+import FormPage from "./FormPage";
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="Box" />
+      <FormPage/>
     </div>
   );
 };
