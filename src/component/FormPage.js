@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import "../component/style.css";
-import {
-  Typography,
-  FormControlLabel,
-  Paper,
-  Checkbox,
-} from "@material-ui/core";
+import { Typography, FormControlLabel, Paper } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import IconButton from "@material-ui/core/IconButton";
+import TableView from "./TableView.js";
 
 const FormPage = () => {
   const radiovalue = {
@@ -42,6 +38,7 @@ const FormPage = () => {
 
   return (
     <>
+      {!showTable ? (
         <div>
           {formData.map((data, index) => (
             <div style={{ margin: "1rem 7rem 1rem 7rem" }}>
@@ -57,7 +54,7 @@ const FormPage = () => {
                     onChange={(e) => handleRadioChange(e, index)}
                   >
                     <FormControlLabel
-                      value="not relevant"
+                      value="Not relevant"
                       control={<Radio color="primary" />}
                       label="Not relevant"
                     />
@@ -67,7 +64,7 @@ const FormPage = () => {
                       label="Yes"
                     />
                     <FormControlLabel
-                      value="no"
+                      value="No"
                       control={<Radio color="primary" />}
                       label="No"
                     />
@@ -191,27 +188,27 @@ const FormPage = () => {
                   >
                     <FormControlLabel
                       value="Not relevant"
-                      control={<Checkbox color="primary" />}
+                      control={<Radio color="primary" />}
                       label="Not relevant"
                     />
                     <FormControlLabel
                       value="When lying down"
-                      control={<Checkbox color="primary" />}
+                      control={<Radio color="primary" />}
                       label="When lying down"
                     />
                     <FormControlLabel
                       value="When sitting"
-                      control={<Checkbox color="primary" />}
+                      control={<Radio color="primary" />}
                       label="When sitting"
                     />
                     <FormControlLabel
                       value="Under standing"
-                      control={<Checkbox color="primary" />}
+                      control={<Radio color="primary" />}
                       label="Under standing"
                     />
                     <FormControlLabel
                       value="In walking"
-                      control={<Checkbox color="primary" />}
+                      control={<Radio color="primary" />}
                       label="In walking"
                     />
                   </RadioGroup>
@@ -318,6 +315,7 @@ const FormPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              paddingBottom: "5rem",
             }}
           >
             <Button
@@ -326,9 +324,6 @@ const FormPage = () => {
               style={{
                 marginRight: "1rem",
                 width: "160px",
-              }}
-              onClick={() => {
-                //   setShowSummery(false);
               }}
             >
               Back
@@ -346,6 +341,9 @@ const FormPage = () => {
             </Button>
           </div>
         </div>
+      ) : (
+        <TableView formData={formData} setShowTable={setShowTable} />
+      )}
     </>
   );
 };

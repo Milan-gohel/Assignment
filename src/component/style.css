@@ -13,18 +13,3 @@
 .Description{
     font-weight: bold;
 }
-.Box{
-    margin-top: 2rem;
-    border: 1px solid #dfd7d7;
-    border-radius:3px ;
-    width: 79.5rem;
-    height: 5rem;
-    margin: 1rem 7rem 1rem 7rem,
-}
-.FormContent{
-    margin: 1rem 7rem 1rem 7rem,
-}
-.FormDescription{
-    display: "flex";
-    align-items: "center";
-}
