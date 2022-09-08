@@ -21,7 +21,7 @@ const FormPage = () => {
   const [formData, setFormData] = useState([radiovalue]);
   const [showTable, setShowTable] = useState(false);
 
-  const handleRadioChange = (event, index) => {
+  const handleChange = (event, index) => {
     const updatedForm = formData.map((val, i) => {
       val.index = i;
       return index === i
@@ -31,8 +31,7 @@ const FormPage = () => {
 
     setFormData(updatedForm);
   };
-
-  const addForm = () => {
+  const AddNewForm = () => {
     setFormData([...formData, radiovalue]);
   };
 
@@ -51,7 +50,7 @@ const FormPage = () => {
                     row
                     name="radio1"
                     value={formData[index].radio1}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="Not relevant"
@@ -84,7 +83,7 @@ const FormPage = () => {
                     row
                     name="radio2"
                     value={formData[index].radio2}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="Not relevant"
@@ -117,7 +116,7 @@ const FormPage = () => {
                     row
                     name="radio3"
                     value={formData[index].radio3}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="Not relevant"
@@ -146,7 +145,7 @@ const FormPage = () => {
                     row
                     name="radio4"
                     value={formData[index].radio4}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="Not relevant"
@@ -184,7 +183,7 @@ const FormPage = () => {
                   <RadioGroup
                     name="radio5"
                     value={formData[index].radio5}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="Not relevant"
@@ -224,7 +223,7 @@ const FormPage = () => {
                     row
                     name="radio6"
                     value={formData[index].radio6}
-                    onChange={(e) => handleRadioChange(e, index)}
+                    onChange={(e) => handleChange(e, index)}
                   >
                     <FormControlLabel
                       value="1"
@@ -302,7 +301,7 @@ const FormPage = () => {
             }}
           >
             <IconButton
-              onClick={addForm}
+              onClick={AddNewForm}
               color="primary"
               aria-label="add to shopping cart"
               size="medium"
@@ -331,7 +330,6 @@ const FormPage = () => {
             <Button
               variant="contained"
               onClick={() => {
-                console.log(formData);
                 setShowTable(true);
               }}
               color="primary"
