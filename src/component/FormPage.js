@@ -8,6 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import IconButton from "@material-ui/core/IconButton";
 import TableView from "./TableView.js";
+import CheckboxComponent from "./CheckBoxComponent";
 
 const FormPage = () => {
   const radiovalue = {
@@ -16,10 +17,20 @@ const FormPage = () => {
     radio3: "",
     radio4: "",
     index: "",
+    checkboxes: [],
   };
 
   const [formData, setFormData] = useState([radiovalue]);
   const [showTable, setShowTable] = useState(false);
+
+  const setCheckbox = (value, index) => {
+    const updatedForm = formData.map((val, i) => {
+      val.index = i;
+      return index === i ? Object.assign(val, { checkboxes: value }) : val;
+    });
+
+    setFormData(updatedForm);
+  };
 
   const handleChange = (event, index) => {
     const updatedForm = formData.map((val, i) => {
@@ -31,6 +42,7 @@ const FormPage = () => {
 
     setFormData(updatedForm);
   };
+
   const AddNewForm = () => {
     setFormData([...formData, radiovalue]);
   };
@@ -179,38 +191,12 @@ const FormPage = () => {
                     When do you experience the problem?
                   </Typography>
                 </div>
-                <div>
-                  <RadioGroup
-                    name="radio5"
-                    value={formData[index].radio5}
-                    onChange={(e) => handleChange(e, index)}
-                  >
-                    <FormControlLabel
-                      value="Not relevant"
-                      control={<Radio color="primary" />}
-                      label="Not relevant"
-                    />
-                    <FormControlLabel
-                      value="When lying down"
-                      control={<Radio color="primary" />}
-                      label="When lying down"
-                    />
-                    <FormControlLabel
-                      value="When sitting"
-                      control={<Radio color="primary" />}
-                      label="When sitting"
-                    />
-                    <FormControlLabel
-                      value="Under standing"
-                      control={<Radio color="primary" />}
-                      label="Under standing"
-                    />
-                    <FormControlLabel
-                      value="In walking"
-                      control={<Radio color="primary" />}
-                      label="In walking"
-                    />
-                  </RadioGroup>
+                <div style={{ display: "grid" }}>
+                  <CheckboxComponent
+                    index={index}
+                    checkbox={formData[index].checkboxes}
+                    setCheckbox={setCheckbox}
+                  />
                 </div>
                 <div style={{ display: "flex", paddingTop: "2rem" }}>
                   <Typography style={{ marginRight: "2rem" }}>

@@ -74,7 +74,7 @@ const TableView = (props) => {
                   <TableCell align="right">{row.radio2}</TableCell>
                   <TableCell align="right">{row.radio3}</TableCell>
                   <TableCell align="right">{row.radio4}</TableCell>
-                  <TableCell align="right">{row.radio5}</TableCell>
+                  <TableCell align="right">{row.checkboxes.join()}</TableCell>
                   <TableCell align="right">{row.radio6}</TableCell>
                 </TableRow>
               ))}
